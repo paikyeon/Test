@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>글 상세페이지</h3>
+<form action="/board/edit" method="post">
+    <table border="1">
+    <tr><th>글번호</th><td><input type="text" value="{{b.num}}" name="num" readonly></td></tr>
+    <tr><th>작성자</th><td><input type="text" value="{{b.writer}}" name="writer" readonly></td></tr>
+    <tr><th>작성일</th><td><input type="text" value="{{b.w_date}}" name="w_date" readonly></td></tr>
+    <tr><th>제목</th><td><input type="text" value="{{b.title}}" name="title" {{msg}}></td></tr>
+    <tr><th>내용</th><td><input type="text" value="{{b.content}}" name="content" {{msg}}></td></tr>
+    {% if flag %}
+    <tr><th>수정/삭제</th><td><input type="submit" value="수정"><input type="button" value="삭제"></td></tr>
+    {% endif %}
+    </table>
+</form>
+</body>
+</html>

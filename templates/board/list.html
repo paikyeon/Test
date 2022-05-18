@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function a(){
+            location.href="/board/getbywriter/"+f.writer.value
+        }
+        function b(){
+            location.href="/board/getbytitle/"+f.title.value
+        }
+    </script>
+</head>
+<body>
+<h3>글목록</h3>
+<a href="/board/add">글작성</a><br/>
+{% if blist==None %}
+<h2>검색결과 없음</h2>
+{% else %}
+<table border="1">
+    <tr><th>글번호</th><th>제목</th><th>작성자</th></tr>
+    {% for b in blist %}
+    <tr>
+        <td>{{b.num}}</td><td><a href="/board/detail/{{b.num}}">{{b.title}}</a></td><td>{{b.writer}}</td>
+    </tr>
+    {% endfor %}
+</table><br/>
+{% endif %}
+
+<form name="f">
+검색할 글의 작성자: <input type="text" name="writer"><input type="button" value="검색" onclick="a()"><br/>
+검색할 글의 제목: <input type="text" name="title"><input type="button" value="검색" onclick="b()"><br/>
+<a href="/board/list">전체글목록</a>
+</form>
+</body>
+</html>
